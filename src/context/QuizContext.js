@@ -79,7 +79,7 @@ function QuizProvider({ children }) {
   //console.log(maxPoints);
 
   useEffect(function () {
-    fetch(`/questions.json`)
+    fetch(`${process.env.PUBLIC_URL}/questions.json`)
       .then((res) => res.json())
       .then((data) => dispatch({ type: "dataReceived", payload: data }))
       .catch((err) => dispatch({ type: "DataFailed" }));
