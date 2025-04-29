@@ -81,7 +81,9 @@ function QuizProvider({ children }) {
   useEffect(function () {
     fetch(`${process.env.PUBLIC_URL}/questions.json`)
       .then((res) => res.json())
-      .then((data) => dispatch({ type: "dataReceived", payload: data }))
+      .then((data) =>
+        dispatch({ type: "dataReceived", payload: data.questions })
+      )
       .catch((err) => dispatch({ type: "DataFailed" }));
   }, []);
   return (
